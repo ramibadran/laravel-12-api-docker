@@ -5,11 +5,23 @@ if [ ! -f "vendor/autoload.php" ]; then
 fi
 
 #if [ ! -f ".env" ]; then
-    echo "Creating env file for env $APP_ENV"
-    cp .env_docker .env
+    #echo "Creating env file for env $APP_ENV"
+    #cp .env_docker .env
 #else
     #echo "env file exists."
 #fi
+
+echo "Creating env file for env $APP_ENV"
+case "$APP_ENV" in
+"local")
+    echo "Copying .env.example ... "
+    cp env_docker .env
+;;
+"prod")
+    echo "Copying .env.prod ... "
+    cp .env_prod .env
+;;
+esac
 
 php artisan migrate
 php artisan optimize clear

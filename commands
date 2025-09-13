@@ -1,3 +1,4 @@
+#https://www.youtube.com/watch?v=ksLuij03lbw
 docker compose up -d
 docker compose down -v
 docker ps

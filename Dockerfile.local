@@ -25,6 +25,9 @@ COPY ./docker/nginx/nginx.conf /etc/nginx/nginx.conf
 # Install Xdebug
 RUN pecl install xdebug && docker-php-ext-enable xdebug
 
+# Install Redis
+RUN pecl install -o -f redis && rm -rf /tmp/pear && docker-php-ext-enable redis
+
 # Set working directory to /var/www.
 WORKDIR /var/www
 
@@ -59,4 +62,4 @@ RUN usermod --uid 1000 www-data
 RUN groupmod --gid 1001 www-data
 
 # Run the entrypoint file.
-ENTRYPOINT [ "docker/entrypoint.local.sh" ]
+ENTRYPOINT [ "docker/entrypoint.sh" ]

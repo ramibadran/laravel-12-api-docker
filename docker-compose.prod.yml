@@ -17,7 +17,7 @@ services:
         depends_on:
             - database
             - redis
-    database:
+    database: #will remove as we are going to use RDS on prod environment
         container_name: database
         image: mysql:8.0
         ports:
