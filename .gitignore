@@ -5,6 +5,7 @@
 .env_prod
 .phpactor.json
 .phpunit.result.cache
+composer.lock
 /.fleet
 /.idea
 /.nova

@@ -49,7 +49,7 @@ class UserController extends Controller{
             DB::commit();
             
             if(!empty($user)){
-                return responseJson(Response::HTTP_CREATED,HTTP_OK,__('messages.general.created'),$request,$serviceName,new UserResource($user),null,[],$user);
+                return responseJson(Response::HTTP_CREATED,__('messages.general.created'),$request,$serviceName,new UserResource($user),null,[],$user);
             }else{
                 return responseJson(Response::HTTP_OK,__('messages.general.error'),$request,$serviceName,null,[],[],$user);
             }
